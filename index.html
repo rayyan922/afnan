@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afnan - Islamic Student Portfolio</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a5e1a 0%, #2d8b2d 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #d4af37;
+            margin: 0 auto 1rem;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #1a5e1a;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #2d8b2d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #1a5e1a;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a5e1a;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            margin: 10px auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .islamic-icon {
+            font-size: 10rem;
+            color: #1a5e1a;
+            opacity: 0.7;
+        }
+        
+        /* Studies Section */
+        .studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .study-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .study-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .study-card h3 {
+            color: #1a5e1a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .study-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Goals Section */
+        .goals-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .goal-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid #d4af37;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: #1a5e1a;
+            font-size: 1.2rem;
+        }
+        
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        form button {
+            background: #1a5e1a;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        form button:hover {
+            background: #2d8b2d;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a5e1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .islamic-dua {
+            font-style: italic;
+            margin: 1rem 0;
+            opacity: 0.9;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .islamic-icon {
+                font-size: 6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="profile-img">☪</div>
+            <h1>Afnan</h1>
+            <p class="subtitle">13-Year-Old Islamic Student</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#studies">My Studies</a></li>
+            <li><a href="#goals">My Goals</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Assalamu Alaikum! I'm Afnan, a 13-year-old student dedicated to learning about Islam and becoming a better Muslim.</p>
+                    <p>I'm currently studying the Quran, Hadith, Islamic history, and Arabic language. My goal is to gain deep knowledge of my religion and apply its teachings in my daily life.</p>
+                    <p>When I'm not studying, I enjoy reading Islamic books, spending time with my family, and helping in community activities at our local mosque.</p>
+                </div>
+                <div class="about-image">
+                    <div class="islamic-icon">☪</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Studies Section -->
+    <section id="studies" style="background-color: #f0f7f0;">
+        <div class="container">
+            <h2>My Islamic Studies</h2>
+            <div class="studies-grid">
+                <div class="study-card">
+                    <h3><span class="study-icon">📖</span> Quran Memorization</h3>
+                    <p>I'm currently memorizing the Holy Quran with proper Tajweed. I've memorized several Surahs and aim to complete more in the coming years.</p>
+                </div>
+                <div class="study-card">
+                    <h3><span class="study-icon">📚</span> Hadith Studies</h3>
+                    <p>Learning about the teachings of Prophet Muhammad (PBUH) through the study of Hadith collections and their explanations.</p>
+                </div>
+                <div class="study-card">
+                    <h3><span class="study-icon">🕌</span> Islamic History</h3>
+                    <p>Exploring the rich history of Islam, from the time of the Prophet (PBUH) to the golden age of Islamic civilization.</p>
+                </div>
+                <div class="study-card">
+                    <h3><span class="study-icon">✍️</span> Arabic Language</h3>
+                    <p>Studying Arabic to better understand the Quran and Islamic texts in their original language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Goals Section -->
+    <section id="goals">
+        <div class="container">
+            <h2>My Goals & Aspirations</h2>
+            <div class="goals-content">
+                <div class="goal-item">
+                    <h3>Short-term Goals</h3>
+                    <p>Complete memorization of Juz' Amma (30th part of the Quran) by the end of this year.</p>
+                </div>
+                <div class="goal-item">
+                    <h3>Medium-term Goals</h3>
+                    <p>Become proficient in reading and understanding Arabic texts within the next two years.</p>
+                </div>
+                <div class="goal-item">
+                    <h3>Long-term Goals</h3>
+                    <p>Pursue higher Islamic education and eventually become a knowledgeable resource for my community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f0f7f0;">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>Email: afnanafnu@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🏠</span>
+                        <span>Local Mosque: pattambi ,palakkad ,kerala ,india</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">👨‍👩‍👧‍👦</span>
+                        <span>Contact through my parents for any inquiries</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">☎️</span>
+                        <span>91+ 9645-9755-63</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="messageForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Afnan - Islamic Student Portfolio</p>
+                <p class="islamic-dua">"رَبِّ زِدْنِي عِلْمًا" - "My Lord, increase me in knowledge." (Quran 20:114)</p>
+                <p>May Allah bless all our efforts in seeking knowledge</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form submission handler
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Shukran! Your message has been sent. I will respond through my parents if needed.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
